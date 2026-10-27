@@ -1,14 +1,18 @@
+# Mains Signal Acquisition Block Diagram
+
+```mermaid
 flowchart LR
-    A["<b>AC Mains</b><br/>220V<br/>AC"] -->|220VAC| B["<b>Transformer</b><br/>220V to 12V<br/>AC"]
-    B -->|12VAC| C["<b>VDR</b><br/>12V to 0.707V<br/>AC"]
-    C -->|0.707VAC| D["<b>Sound Card</b><br/>ADC"]
-    D -->|010101| E["<b>Simulink</b>"]
+    A["AC Mains<br/>220V<br/>AC"] -->|220VAC| B["Transformer<br/>220V to 12V<br/>AC"]
+    B -->|12VAC| C["VDR<br/>12V to 0.707V<br/>AC"]
+    C -->|0.707VAC| D["Sound Card<br/>ADC"]
+    D -->|010101| E["Simulink"]
 
-    B ~~~ B1["Step<br/>Down"]
-    D ~~~ D1["Sampling<br/>and<br/>Quantization"]
-    E ~~~ E1["Further<br/>Processing"]
+    B --- B1["Step Down"]
+    D --- D1["Sampling and Quantization"]
+    E --- E1["Further Processing"]
 
-    classDef block fill:#fff,stroke:#000,stroke-width:1.5px,color:#000;
-    classDef note fill:none,stroke:none,color:#000;
-    class A,B,C,D,E block;
-    class B1,D1,E1 note;
+    style B1 fill:none,stroke:none
+    style D1 fill:none,stroke:none
+    style E1 fill:none,stroke:none
+    linkStyle 4,5,6 stroke:none
+```
